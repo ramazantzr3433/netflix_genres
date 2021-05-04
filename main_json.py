@@ -12,6 +12,10 @@ def hello_world():
 
 @app.route('/get_genres/', methods=['GET'])
 def get_genres():
+    """
+       Genres.json dosyasındaki tüm kategorileri çekiyoruz
+       :return:
+    """
     with open('genres.json', 'r', encoding='utf-8') as file:
         all_genres = loads(file.read())
         for a in all_genres:
@@ -24,6 +28,11 @@ def get_genres():
 
 @app.route('/get_genre/<_id>', methods=['GET'])
 def get_genre(_id):
+    """
+         Genres.json dosyasından seçtiğimiz bir adet kategoriyi çekiyoruz
+        :param _id:
+        :return:
+    """
     name = _id
     print(name)
     with open('genres.json', 'r', encoding='utf-8') as file:
